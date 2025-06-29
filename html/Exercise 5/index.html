@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Us</title>
+</head>
+
+<body>
+  <header>
+    <h1 style="font-weight: bold;">Contact Us</h1>
+  </header>
+    <main>
+      <form action="#" method="post">
+        <fieldset>
+          <legend><h3 style="font-weight: lighter;">Personal Information</h3></legend>
+          <nobr><label for="name">Name:</label></nobr>
+          <input type="text" id="name" name="name" placeholder="Your Name" required><br><br>
+          <nobr><label for="email">Email:</label></nobr>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required><br><br>
+          <nobr><label for="phone">Phone:</label></nobr>
+          <input type="tel" id="phone" name="phone" placeholder="(555)-123-4567" required><br><br>
+        </fieldset>
+      </form>
+
+      <form action="#" method="post">
+         <fieldset>
+          <legend><h3 style="font-weight: lighter;">Message Details</h3></legend>
+          <nobr><label for="subject">Subject:</label></nobr>
+          <select name="subject" id="subject" required>
+            <option value="" disabled selected>Select subject</option>
+            <option value="general">General Inquiry</option>
+            <option value="support">Support Request</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Other</option>
+          </select><br><br>        
+          <label for="priority">Priority:</label><br>
+
+          <input type="radio" id="priority1" name="priority" value="Low">
+          <label for="priority1">Low</label>
+          <input type="radio" id="priority2" name="priority" value="Medium">
+          <label for="priority2">Medium</label>
+          <input type="radio" id="priority3" name="priority" value="High">
+          <label for="priority3">High</label>
+          <label for="message">Message:</label><br>
+          <textarea id="message" name="message" rows="4" placeholder="Your Message..." required></textarea><br><br>
+        </fieldset>
+      </form>
+
+
+      <form action="#" method="post">
+        <fieldset>
+          <legend><h3 style="font-weight: lighter;">Preferences</h3></legend>
+          <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+          <label for="subscribe">Subscribe to our newsletter</label><br><br>
+          <label for="contact-method">Contact Method:</label>
+          <select id="contact-method" name="contact-method" required>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="chat">Live Chat</option>
+          </select><br><br>
+          </fieldset>
+      </form>
+
+      <input type="submit" value="Send Message">
+      <input type="reset" value="Reset">
+    </main>
+</html>
+        
