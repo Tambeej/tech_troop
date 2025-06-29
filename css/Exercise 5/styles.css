@@ -1,0 +1,29 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+table, th, td {
+  border: 1px solid black;
+   border-collapse: collapse;
+}
+
+td ,th{
+  padding: 8px;
+  border-left: none;
+  border-right: none;
+  padding: auto;
+}
+th {
+  background-color: rgb(176, 175, 175);
+}
+
+td{
+  background-color: rgb(167, 248, 179);
+}

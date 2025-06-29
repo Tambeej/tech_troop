@@ -1,0 +1,11 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+body {
+  margin: 1px;
+  padding: 1px;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+

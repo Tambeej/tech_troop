@@ -1,0 +1,32 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+.first-hello {
+  color: rgb(164, 244, 169);
+  font-size: 24px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+.second-hello {
+  color: rgb(191, 168, 241);
+  font-size: 60px;
+  text-align: center;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-weight: lighter;
+}
+.third-hello {
+  color: rgb(246, 179, 224);
+  font-size: 70px;
+  text-align: center;
+  font-style: italic;
+  font-family: 'Arial Black', Gadget, sans-serif;
+
+}
