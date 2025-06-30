@@ -1,0 +1,33 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  font-family: serif;
+  color: black;
+}
+#parent{
+  position: relative;
+  margin: auto;
+  background-color: blue;
+  width: 300px;
+  height: 300px;
+}
+
+#child1{
+  margin-top: 20%;
+  position: absolute;
+  background-color: red;
+  width: 300px;
+  height: 20px;
+}
+
+#child2{
+  margin-left: 20%;
+  position: absolute;
+  background-color: red;
+  width: 20px;
+  height: 300px;
+}

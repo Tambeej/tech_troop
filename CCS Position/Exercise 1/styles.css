@@ -1,0 +1,48 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  font-family: serif;
+  color: black;
+}
+#parent{
+  position: relative;
+  width: fit-content;
+  margin: auto;
+}
+
+#child1{
+  top:0;
+  left: 0;
+  margin-top: 0%;
+  position: absolute;
+}
+
+#child2{
+  margin-top: 0%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#child3{  
+  margin-bottom: 0%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+#child4{
+  margin-bottom: 0%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+img{
+  display: block;
+  margin: auto;
+  border: 2px solid black;
+}
