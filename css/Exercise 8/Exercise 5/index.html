@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
     <title>Contact Us</title>
 </head>
 
 <body>
   <header>
-    <h1 style="font-weight: bold;">Contact Us</h1>
+    <h1>Contact Us</h1>
   </header>
     <main>
       <form action="#" method="post">
         <fieldset>
-          <legend><h3 style="font-weight: lighter;">Personal Information</h3></legend>
+          <legend><h3>Personal Information</h3></legend>
           <nobr><label for="name">Name:</label></nobr>
           <input type="text" id="name" name="name" placeholder="Your Name" required><br><br>
           <nobr><label for="email">Email:</label></nobr>
@@ -27,7 +28,7 @@
 
       <form action="#" method="post">
          <fieldset>
-          <legend><h3 style="font-weight: lighter;">Message Details</h3></legend>
+          <legend><h3>Message Details</h3></legend>
           <nobr><label for="subject">Subject:</label></nobr>
           <select name="subject" id="subject" required>
             <option value="" disabled selected>Select subject</option>
@@ -52,7 +53,7 @@
 
       <form action="#" method="post">
         <fieldset>
-          <legend><h3 style="font-weight: lighter;">Preferences</h3></legend>
+          <legend><h3>Preferences</h3></legend>
           <input type="checkbox" id="subscribe" name="subscribe" value="yes">
           <label for="subscribe">Subscribe to our newsletter</label><br><br>
           <label for="contact-method">Contact Method:</label>
@@ -64,8 +65,8 @@
           </fieldset>
       </form>
 
-      <button class="send-button" type="submit" value="Send Message">Send Message</button>
-      <button class="reset-button" type="reset">Reset</button>
+      <button id="send" class="button" type="submit" value="Send Message">Send Message</button>
+      <button id="reset" class="button" type="reset">Reset</button>
     </main>
 </html>
         

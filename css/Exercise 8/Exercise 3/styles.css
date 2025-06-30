@@ -1,0 +1,43 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  margin: 2em;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: rgb(39, 36, 54);
+  color: rgb(250, 253, 253);
+  font-weight: lighter;
+}
+
+h1{
+  color: #d1bf00;
+}
+h2 {
+  color: #d55d13;
+  margin-top: 20px;
+}
+h3{
+  color: rgb(0, 85, 255);
+}
+
+hr{
+  border: 1px solid #d55d13;
+}
+span{
+  color: #d1bf00;
+}
+
+a, li{
+  color: rgb(3, 174, 174);
+  font-weight: bold;
+  font-size: small;
+}
+
+.contact-title{
+  color: #d1bf00;
+}
+

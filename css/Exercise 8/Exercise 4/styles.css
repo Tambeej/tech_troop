@@ -1,0 +1,60 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  margin: 2em;
+  padding: 0;
+  font-family: serif;
+  background-color: rgb(7, 7, 7);
+  color: rgb(252, 254, 254);
+  font-weight: lighter;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: #8efab4 3px solid;
+}
+
+td,
+th {
+  padding: 12px 15px;
+  border: 1px solid #0600003e;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #51515146;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+.table-header {
+  background-color: #2d2d2d49;
+  color: #8efab4;
+}
+
+.bold {
+  font-weight: bold;
+  color: #e9e225;
+}
+
+#title {
+  text-align: center;
+  color: #8efab4;
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+#sub-title {
+  text-align: center;
+  color: #e9e225;
+  margin-top: 10px;
+  font-style: italic;
+}

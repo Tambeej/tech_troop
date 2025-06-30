@@ -1,0 +1,54 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  margin: 2em;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: rgb(255, 255, 253);
+  color: rgb(13, 2, 95);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #8bd9f5;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+h3{
+  font-size: 1.5em;
+  color: #8bd9f5;
+  font-weight: bold;
+  background-color: white;
+}
+
+fieldset{
+  border-color: #8bd9f5;
+  background-color: rgb(223, 223, 215);
+  border-radius: 2%;
+}
+
+#send {
+  background-color: #04AA6D;
+}
+
+#reset{
+  background-color: #f44a4a;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 15%;
+  margin: 5px 2px;
+}

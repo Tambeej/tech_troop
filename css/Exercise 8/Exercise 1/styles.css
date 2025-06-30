@@ -1,0 +1,37 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  margin: 2em;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+#main-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 20px;
+  font-weight: bold;
+  text-decoration:underline;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-top: 40px;
+  color: #4a90e2;
+  text-decoration: underline;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #a116cb;
+}
+
+.short-term-goals {
+  font-weight: bold;
+  color: #2f0bcf;
+  text-decoration: underline;
+}

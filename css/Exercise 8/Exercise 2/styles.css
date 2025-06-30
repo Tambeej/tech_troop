@@ -1,0 +1,60 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  margin: 2em;
+  padding: 0;
+  font-family: serif;
+  background-color: #FAF7C0;
+  color: rgb(8, 8, 8);
+}
+
+div{
+  border-left: 5px solid #1673dd;
+  background-color: #b5d6fb;
+}
+
+ol, ul{
+  background-color: #cbe2fc;
+  padding: 20px;
+}
+
+#main-title {
+  text-align: center;
+  color: rgb(237, 124, 17);
+  margin-top: 20px;
+  font-family: serif;
+  font-size: 40px;
+  text-shadow: grey 2px 2px 4px;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-top: 40px;
+  text-decoration: underline;
+  color: #1673dd;
+  padding: 10px;
+  font-family: serif;
+}
+.sub-section-title {
+  color: #3b3b3b;
+  margin-top: 16px;
+  font-style: italic;
+  font-size: 1.2em;
+  font-weight: normal;
+}
+
+.inner-list {
+  color: #0c0c0c;
+  font-size: 0.9em;
+}
+
+li {
+  margin: 5px 0;
+  color: rgb(237, 124, 17);
+  font-weight: bold;
+  
+}

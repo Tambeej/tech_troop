@@ -5,40 +5,15 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family:serif;
   margin: 2%;
 }
-.google-button{
-  background-color: rgb(8, 171, 19);
+
+button{
+  background-color: rgb(211, 160, 102);
   font-size: 24px;
   text-align: center;
-  font-family: 'Arial Black', Gadget, sans-serif;
-    margin: 2%;
-
-}
-.facebook-button{
-  background-color: rgb(13, 5, 177);
-  font-size: 24px;
-  text-align: center;
-  font-family: 'Arial Black', Gadget, sans-serif;
-    margin: 2%;
-
-}
-.twitter-button{
-  background-color: rgb(5, 2, 10);
-  font-size: 24px;
-  color: white;
-  text-align: center;
-  font-family: 'Arial Black', Gadget, sans-serif;
-    margin: 2%;
-
-
-}
-.youtube-button{
-  background-color: rgb(183, 38, 9);
-  font-size: 24px;
-  text-align: center;
-  font-family: 'Arial Black', Gadget, sans-serif;
-  margin: 2%;
-
-}
+  color: blue;
+  font-family: serif;
+  border: 0;
+  }

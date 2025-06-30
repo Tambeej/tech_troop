@@ -3,9 +3,21 @@
     <link rel="stylesheet" href="style.css">
 */
 body {
-  margin: 1px;
+  margin: 5px;
   padding: 1px;
   font-family: Arial, sans-serif;
   background-color: white;
+}
+
+h1 {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+img{
+  width: 100px;
+  height: 120px;
 }
 
