@@ -1,0 +1,27 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+#div1{
+  position: absolute;
+  left: 0;
+  top: 20;
+  width: calc(100% - 20px);
+  height: 100px;
+  background-color: rgba(255, 0, 0, 0.141);
+}
+#div2 {
+  position: absolute;
+  right: 0;
+  top: 20;
+  width: calc(20px);
+  height: 100px;
+  background-color: rgba(255, 0, 0, 0.729);
+}
