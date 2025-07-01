@@ -1,12 +1,13 @@
 /* style.css */
 /* Link this file in your index.html with:
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 */
 
 /* Add your CSS styles below */
 body {
   font-family: serif;
   color: black;
+  margin: 0;
 }
 #parent{
   position: relative;
@@ -14,35 +15,28 @@ body {
   margin: auto;
 }
 
-#child1{
+.child{
+  position: absolute;
+  margin: 1%;
+}
+
+.top{
   top:0;
-  left: 0;
-  margin-top: 0%;
-  position: absolute;
 }
-
-#child2{
-  margin-top: 0%;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-#child3{  
-  margin-bottom: 0%;
-  position: absolute;
-  left: 0;
+.bottom{
   bottom: 0;
 }
-#child4{
-  margin-bottom: 0%;
-  position: absolute;
+.right{
   right: 0;
-  bottom: 0;
+}
+.left{
+  left: 0;
 }
 
-img{
+img {
   display: block;
   margin: auto;
   border: 2px solid black;
+  max-width: 100%; 
+  height: auto;
 }

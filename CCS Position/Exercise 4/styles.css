@@ -8,7 +8,8 @@ body {
   font-family: serif;
   color: black;
 }
-#parent{
+
+.parent{
   position: relative;
   
   margin: auto;
@@ -18,7 +19,7 @@ body {
   border-radius: 5%;
 }
 
-#child1{
+.child1{
   margin-top: 0;
   position: absolute;
   background-color: rgb(171, 170, 170);
@@ -26,7 +27,7 @@ body {
   height: 70px;
 }
 
-#child2{
+.child2{
   margin-left: 0;
   position: relative;
   margin: auto;

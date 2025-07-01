@@ -1,6 +1,6 @@
 /* style.css */
 /* Link this file in your index.html with:
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 */
 
 /* Add your CSS styles below */
@@ -17,7 +17,7 @@ body {
 }
 
 #child1{
-  margin-top: 20%;
+  top: 20%;
   position: absolute;
   background-color: red;
   width: 300px;
@@ -25,7 +25,7 @@ body {
 }
 
 #child2{
-  margin-left: 20%;
+  left: 20%;
   position: absolute;
   background-color: red;
   width: 20px;
