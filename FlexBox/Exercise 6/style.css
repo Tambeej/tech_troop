@@ -1,0 +1,95 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="styles.css">
+*/
+
+/* Add your CSS styles below */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  color: rgba(0, 0, 0, 0.488);
+  margin: 0;
+}
+
+main {
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.col {
+  border: solid 3px #ef8180;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.line {
+  height: 15px;
+  width: 60px;
+  background-color: #ef8180;
+  margin-left: auto;
+  margin: 2px;
+}
+
+.text {
+  font-size: 10px;
+  line-height: 1.5;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  padding: 5%;
+}
+
+.dot {
+  height: 100px;
+  width: 100px;
+  background-color: #ef8180;
+  border-radius: 50%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10% 0;
+}
+
+.line-row {
+  border-top: solid 3px #ef8180;
+  display: flex;
+  width: 100%;
+  padding: 5% 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.first {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+  justify-content: flex-start;
+  padding-left: 30px;
+}
+
+.second {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+
+}

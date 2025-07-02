@@ -1,0 +1,53 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="styles.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  font-family: Georgia, serif;
+  color: black;
+  margin: 0;
+}
+
+main {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  margin: 20px 100px;
+  border: solid 1px rgb(190, 190, 190);
+  align-items: center;
+}
+
+.col {
+  border: solid 1px rgb(190, 190, 190);
+  height: 60%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 200px 0px;
+  justify-content: center;
+}
+
+.dot {
+  height: 100px;
+  width: 100px;
+  background-color: #7b8eec;
+  border-radius: 50%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: calc((100% - 55px) / 2) 0;
+}
+
+.text {
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.5;
+}
