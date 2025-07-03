@@ -51,7 +51,7 @@ main {
   flex-direction: row;
   align-items: center;
   width: 80%;
-  padding: 5%;
+  padding: 10px;
 }
 
 .dot {
@@ -73,7 +73,6 @@ main {
   padding: 5% 0;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
 }
 
 .first {
@@ -83,6 +82,7 @@ main {
   width: 50%;
   justify-content: flex-start;
   padding-left: 30px;
+
 }
 
 .second {

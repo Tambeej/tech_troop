@@ -1,0 +1,137 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(90deg, #677de8 0%, #754da5 72%);
+  color: #6f6f6f;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+form {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+main > div {
+  background-color: white;
+  border-radius: 10px;
+  width: 60%;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: white;
+}
+h4 {
+  font-weight: lighter;
+  text-align: center;
+}
+
+fieldset {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.full-name {
+  display: flex;
+}
+
+input,
+select{
+  height: 25px;
+}
+
+textarea,input,
+select{
+  margin: 2px 2px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(128, 128, 128, 0.427);
+}
+
+
+label {
+  margin: 4px 2px;
+}
+
+.dropdown {
+  display: flex;
+}
+
+
+.contact, .field-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.field-row{
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.field-row:first-child{
+  padding: 0 10px;
+}
+
+.field-row > option{
+  font-weight: bold;
+}
+
+.buttons{
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px;
+  border-radius: 10px;
+}
+.button {
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 5px 2px;
+  font-weight: bold;
+}
+
+.save {
+  background-color: #F8F9FA;
+  border:1px solid #cdcdcd;
+  color: #898989;
+  margin-right: auto;
+}
+
+.send {
+  background-image: linear-gradient(45deg, #4AB1FE 0%, #0BEFFE 72%);;
+  color: white;
+  border: none;
+}
+
