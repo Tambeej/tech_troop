@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="style.css" />
     <title>Protfolio</title>
   </head>
-  <nav>
-    <ul>
-      <li class="name"><a href="#">Jhon Doe</a></li>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
 
   <body>
+    <nav>
+      <ul>
+        <li class="name"><a href="#">Jhon Doe</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
     <main>
       <div class="main-container">
         <div class="row first-row">
-          <div class="col col-sm-12 col-lg-6">
+          <div class="col col-sm-12 col-lg-5">
             <h1>Full-Stack Developer</h1>
             <p>
               I create beautiful and functional web expirences using modern
@@ -30,12 +30,12 @@
             </p>
             <button>Get In Touch</button>
           </div>
-          <div class="center-col col col-sm-12 col-lg-6">
+          <div class="center-col col col-sm-12 col-lg-5">
             <span class="dot" aria-hidden="true">Professional Photo </span>
           </div>
         </div>
         <div class="row second-row">
-          <div class="col col-sm-12 col-lg-6">
+          <div class="col col-sm-12 col-lg-7">
             <h2>About Me</h2>
             <p>
               I'm a passionate full-stack developer with a keen eye for design
@@ -46,7 +46,7 @@
               coffee while sketching out new project ideas.
             </p>
           </div>
-          <div class="col col-sm-12 col-lg-6">
+          <div class="col col-sm-12 col-lg-3">
             <h3>Skills</h3>
             <div class="sub-row">
               <p>JavaScript</p>
@@ -77,8 +77,8 @@
         <div class="row third-row">
           <h2>My Projects</h2>
           <div class="sub-row-projects">
-            <div class="sub-container  col-sm-12 col-lg-4">
-              <div class="img">Project Image</div>
+            <div class="sub-container col-sm-12 col-lg-3">
+              <div class="img-placeholder">Project Image</div>
               <div class="col projects-col">
                 <h4>E-Commerce Website</h4>
                 <p>
@@ -88,26 +88,65 @@
                 <button class="orange-button">View Project</button>
               </div>
             </div>
-            <div class="sub-container  col-sm-12 col-lg-4">
-              <div class="img">Project Image</div>
+            <div class="sub-container col-sm-12 col-lg-3">
+              <div class="img-placeholder">Project Image</div>
               <div class="col projects-col">
-                <h4>E-Commerce Website</h4>
+                <h4>Weather App</h4>
                 <p>
-                  A responsive online store built with HTML, CSS, and JavaScript
-                  featuring product catalog and shopping cart.
+                  A clean weather application that displays current conditions
+                  and forecasts with a beautiful interface.
                 </p>
                 <button class="orange-button">View Project</button>
               </div>
             </div>
-            <div class="sub-container  col-sm-12 col-lg-4">
-              <div class="img">Project Image</div>
+            <div class="sub-container col-sm-12 col-lg-3">
+              <div class="img-placeholder">Project Image</div>
               <div class="col projects-col">
-                <h4>E-Commerce Website</h4>
+                <h4>Task Manager</h4>
                 <p>
-                  A responsive online store built with HTML, CSS, and JavaScript
-                  featuring product catalog and shopping cart.
+                  A productivity app for managing daily tasks with drag-and-drop
+                  functionality and local storage.
                 </p>
                 <button class="orange-button">View Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row fourth-row">
+          <h2>Get In Touch</h2>
+          <div class="row sub-row-contact">
+            <div class="col col-sm-12 col-lg-7">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
+              <button>Send Message</button>
+            </div>
+            <div class="col col-sm-12 col-lg-3">
+              <h3>Contact Information</h3>
+              <div class="field">
+                <img src="817f17ca38a5189f0fe6c7d665ead707efa38453.png" />
+                <h5>john.doe@email.com</h5>
+              </div>
+              <div class="field">
+                <img src="3b02f8c094b8a35dbf302d51679b717725d85320.png" />
+                <h5>+1 (655) 123-4567</h5>
+              </div>
+              <div class="field">
+                <img src="772dbd81ee49e6b0340d77a3ee66b1cb30772150.png" />
+                <h5>New York, NY</h5>
+              </div>
+              <div class="sub-row-links">
+                <button class="rounded">in</button>
+                <button class="rounded">Ω</button>
+                <button class="rounded">x</button>
               </div>
             </div>
           </div>
