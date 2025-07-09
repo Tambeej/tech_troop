@@ -1,0 +1,39 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+h1{
+  font-size: 24px;
+}
+
+p{
+  font-size: 14px;
+}
+
+@media (min-width: 600px) {
+  h1{
+  font-size: 36px;
+}
+
+p{
+  font-size: 16px;
+}
+}
+
+@media (min-width: 900px) {
+  h1{
+  font-size: 48px;
+}
+
+p{
+  font-size: 18px;
+}
+}

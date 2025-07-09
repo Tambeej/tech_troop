@@ -1,0 +1,24 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.box {
+  width: 100%;
+  background-color: red;
+  aspect-ratio: 1/1;
+}
+
+@media (min-width: 768px) {
+  .box {
+    width: 300px;
+    background-color: blue;
+  }
+}

@@ -1,0 +1,28 @@
+/* style.css */
+/* Link this file in your index.html with:
+    <link rel="stylesheet" href="style.css">
+*/
+
+/* Add your CSS styles below */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.text {
+  color: rgba(240, 248, 255, 0.473);
+  font-size: 14px;
+}
+
+@media (min-width: 600px) {
+  .text {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 900px) {
+  .text {
+    font-size: 18px;
+  }
+}

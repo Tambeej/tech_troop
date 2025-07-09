@@ -59,13 +59,11 @@ const turnToKing = function (name, money) {
   console.log(name + " has " + money + " gold coins");
 };
 
-const increaseByNameLength = function (money, name) {
-  return money * name.length;
-};
 
-const makeRegal = function (name) {
-  return `His Royal Highness, ${name}`;
-};
+const increaseByNameLength = ((money, name) => money * name.length);
+
+
+const makeRegal = ((name) =>`His Royal Highness, ${name}`);
 
 turnToKing("martin luther", 100);
 
