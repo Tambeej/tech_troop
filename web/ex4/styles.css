@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 30px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+}
+
+input {
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+#errors {
+  color: red;
+  margin-top: 20px;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#myForm {
+  background-color: #1abc9c;
+  padding: 10px;
+  margin: auto;
+  width: 50%;
+}
+
+button {
+  background-color: #16a085;
+  border-radius: 10px;
+  box-shadow: 0cap;
+  left: 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}

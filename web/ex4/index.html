@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Validated Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form id="myForm">
+      <label>
+        Name:
+        <input type="text" id="name" />
+      </label>
+
+      <div class="row">
+        <label>
+          Desired Salary:
+          <input type="number" id="salary" />
+        </label>
+
+        <label>
+          Birthday:
+          <input type="date" id="birthday" />
+        </label>
+      </div>
+
+      <label>
+        Phone:
+        <input type="text" id="phone" />
+      </label>
+
+      <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+    <div id="errors"></div>
+    <div class="success" id="successMsg"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
