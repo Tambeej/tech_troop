@@ -31,7 +31,6 @@ class Tweeter {
       new Post("p2", "Aw man, I wanted to be first"),
     ];
 
-    // Manually add comments to the Post instances
     this.posts[0].comments = [
       { id: "c1", text: "First comment on first post!" },
       { id: "c2", text: "Second comment on first post!!" },
