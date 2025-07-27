@@ -81,3 +81,4 @@ class Tweeter {
   }
 }
 
+export default Tweeter;
