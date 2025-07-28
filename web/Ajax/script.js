@@ -48,3 +48,30 @@ function fetchBookByISBNOrTitle(queryType, queryValue) {
 }
 fetchBookByISBNOrTitle("isbn", 9789814561778); // From Third World to First: The Singapore Story
 fetchBookByISBNOrTitle("title", "How to Win Friends and Influence People"); // book by Dale Carnegie
+
+//Ex 3.
+
+function fetchBookByISBNOrTitleAllBooks(queryType, queryValue) {
+  let urlSub =
+    queryType === "isbn" ? `isbn:${queryValue}` : `intitle:${queryValue}`;
+  $.ajax({
+    method: "GET",
+    url: `https://www.googleapis.com/books/v1/volumes?q=${urlSub}`,
+    success: function (data) {
+      if (data.totalItems > 0) {
+        data.items.forEach((item) => {
+          const book = item.volumeInfo;
+          console.log("Title:", book.title);
+          console.log("Authors:", book.authors?.join(", "));
+        });
+      } else {
+        console.log(`No book found with ${queryType}:`, queryValue);
+      }
+    },
+    error: function (xhr, text, error) {
+      console.error("Error:", text);
+    },
+  });
+}
+fetchBookByISBNOrTitleAllBooks("isbn", 9789814561778); // From Third World to First: The Singapore Story
+fetchBookByISBNOrTitleAllBooks("title", "How to Win Friends and Influence People"); // book by Dale Carnegie
