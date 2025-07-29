@@ -39,7 +39,9 @@ async function getUserWithPosts(userId) {
       }
 
       const posts = await postResponse.json();
-      let usersPost = `${user.name} ${posts}`;
+      const usersPost = {
+        [user.name]: posts,
+      };
       console.log(usersPost);
     } catch (error) {
       console.error("Error fetching post:", error.message);
@@ -51,4 +53,80 @@ async function getUserWithPosts(userId) {
   }
 }
 
-console.log(getUserWithPosts(1));
+//Ex 3.
+
+async function createDashboard() {
+  const [usersRes, postsRes, commentsRes] = await Promise.all([
+    fetch("https://jsonplaceholder.typicode.com/users"),
+    fetch("https://jsonplaceholder.typicode.com/posts"),
+    fetch("https://jsonplaceholder.typicode.com/comments"),
+  ]);
+
+  if (!usersRes.ok || !postsRes.ok || !commentsRes.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  const users = await usersRes.json();
+  const posts = await postsRes.json();
+  const comments = await commentsRes.json();
+
+  const totalUsers = users.length;
+  const totalPosts = posts.length;
+  const totalComments = comments.length;
+
+  const avgPostsPerUser = totalPosts / totalUsers;
+  const avgCommentsPerPost = totalComments / totalPosts;
+
+  const userPostMap = {};
+  const userCommentMap = {};
+
+  users.forEach(user => {
+    userPostMap[user.id] = [];
+  });
+
+  posts.forEach(post => {
+    if (userPostMap[post.userId]) {
+      userPostMap[post.userId].push(post.id);
+    }
+  });
+
+  comments.forEach(comment => {
+    const postId = comment.postId;
+    const post = posts.find(p => p.id === postId);
+    if (post && userCommentMap[post.userId] !== undefined) {
+      userCommentMap[post.userId] = (userCommentMap[post.userId] || 0) + 1;
+    }
+  });
+
+  const topUsers = users
+    .map(user => {
+      const postCount = userPostMap[user.id].length;
+      const commentCount = userCommentMap[user.id] || 0;
+      return {
+        name: user.name,
+        postCount,
+        commentCount,
+      };
+    })
+    .sort((a, b) => b.postCount - a.postCount)
+    .slice(0, 3);
+
+  const recentPosts = [...posts]
+    .sort((a, b) => b.id - a.id)
+    .slice(0, 5);
+
+  return {
+    summary: {
+      totalUsers,
+      totalPosts,
+      totalComments,
+      avgPostsPerUser,
+      avgCommentsPerPost,
+    },
+    topUsers,
+    recentPosts,
+  };
+}
+
+createDashboard().then(console.log).catch(console.error);
+
