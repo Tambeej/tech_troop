@@ -74,4 +74,33 @@ function fetchBookByISBNOrTitleAllBooks(queryType, queryValue) {
   });
 }
 fetchBookByISBNOrTitleAllBooks("isbn", 9789814561778); // From Third World to First: The Singapore Story
-fetchBookByISBNOrTitleAllBooks("title", "How to Win Friends and Influence People"); // book by Dale Carnegie
+fetchBookByISBNOrTitleAllBooks(
+  "title",
+  "How to Win Friends and Influence People"
+); // book by Dale Carnegie
+
+//Ex 4.
+
+const API_KEY = "uHD2Phm7lB4u2hk3k0TVbRX56RlEvmgo";
+const url = `https://api.giphy.com/v1/gifs/search?q=cats&api_key=${API_KEY}&limit=1`;
+
+var xhr = $.get(url);
+xhr.done(function (data) {
+  console.log("success got data", data);
+});
+$.ajax({
+  method: "GET",
+  url: url,
+  success: function (data) {
+    const embedUrl = data.data[0].embed_url;
+    const iframe = document.createElement("iframe");
+    iframe.src = embedUrl;
+    iframe.width = "480";
+    iframe.height = "360";
+    iframe.frameBorder = "0";
+    document.getElementById("gif-container").appendChild(iframe);
+  },
+  error: function (xhr, text, error) {
+    console.error("Error:", text);
+  },
+});
