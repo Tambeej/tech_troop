@@ -104,3 +104,43 @@ $.ajax({
     console.error("Error:", text);
   },
 });
+
+//Ex 5.
+$("#search-gif").on("click", searchGif);
+$("#search-input").on("keyup", function (e) {
+  if (e.key === "Enter" || e.keyCode === 13) {
+    searchGif();
+  }
+});
+
+function searchGif() {
+  const input = $("#search-input").val().trim();
+  if (input) {
+    const API_KEY = "uHD2Phm7lB4u2hk3k0TVbRX56RlEvmgo";
+    const url = `https://api.giphy.com/v1/gifs/search?q=${input}&api_key=${API_KEY}&limit=1`;
+
+    var xhr = $.get(url);
+    xhr.done(function (data) {
+      console.log("success got data", data);
+    });
+    $("#gif-container").empty();
+    $.ajax({
+      method: "GET",
+      url: url,
+      success: function (data) {
+        const embedUrl = data.data[0].embed_url;
+        const iframe = document.createElement("iframe");
+        iframe.src = embedUrl;
+        iframe.width = "480";
+        iframe.height = "360";
+        iframe.frameBorder = "0";
+        document.getElementById("gif-container").appendChild(iframe);
+      },
+      error: function (xhr, text, error) {
+        console.error("Error:", text);
+      },
+    });
+
+    $("#search-input").val("");
+  }
+}
