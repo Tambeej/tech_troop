@@ -47,5 +47,28 @@ export function getFriendsNames() {
 }
 
 $(document).ready(() => {
-  $("#generate-user").on("click", getMainPersonData);
+  $("#generate-user").on("click", renderAll);
 });
+
+export function getRandomQuote() {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: "GET",
+      url: "https://api.kanye.rest",
+      dataType: "json",
+      success: function (data) {
+        console.log(data);
+        $("#quote-text").text(data["quote"]);
+        resolve(data);
+      },
+      error: function (err) {
+        reject(err);
+      },
+    });
+  });
+}
+
+export function renderAll() {
+  getMainPersonData();
+  getRandomQuote();
+}
