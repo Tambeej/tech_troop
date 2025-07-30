@@ -81,8 +81,7 @@ fetchBookByISBNOrTitleAllBooks(
 
 //Ex 4.
 
-const API_KEY = "uHD2Phm7lB4u2hk3k0TVbRX56RlEvmgo";
-const url = `https://api.giphy.com/v1/gifs/search?q=cats&api_key=${API_KEY}&limit=1`;
+const url = `https://api.giphy.com/v1/gifs/search?q=cats&api_key=uHD2Phm7lB4u2hk3k0TVbRX56RlEvmgo&limit=1`;
 
 var xhr = $.get(url);
 xhr.done(function (data) {
