@@ -1,33 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>User Profile</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet"/>
-</head>
-<body>
-  <div class="container">
-    <div class="profile-header">
-      <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profile Picture" class="profile-pic"/>
-      <div class="profile-info">
-        <h1>Alan Sutton</h1>
-        <p>Salisbury, Cheshire</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="profile-header">
+        <img
+          src="https://randomuser.me/api/portraits/men/1.jpg"
+          alt="Profile Picture"
+          class="profile-pic"
+        />
+        <div class="profile-info">
+          <h1 class="user-name"></h1>
+          <p class="user-address"></p>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="left-column">
+          <div class="quote">
+            <h3>Favorite quote:</h3>
+            <p class="quote-text">
+              <br />
+              <span class="quote-author">- Kanye West</span>
+            </p>
+          </div>
+
+          <div class="pokemon">
+            <img
+              src="https://img.pokemondb.net/sprites/sword-shield/icon/weepinbell.png"
+              alt="Favorite Pokemon"
+            />
+            <span
+              >Favorite Pokemon: <strong class="pokemon-name"></strong
+            ></span>
+          </div>
+
+          <hr />
+
+          <div class="about">
+            <h3>About me</h3>
+            <p class="text-ipsum"></p>
+          </div>
+
+          <button id="generate-user">Generate User</button>
+        </div>
+
+        <div class="right-column">
+          <h3>Friends</h3>
+          <ul class="friends-list"></ul>
+        </div>
       </div>
     </div>
-
-    <div class="main-content">
-      <div class="left-column">
-        <div class="quote">
-          <h3>Favorite quote:</h3>
-          <p class="quote-text">
-            "Beyond a certain point there is no return. This point has to be reached." <br/>
-            <span class="quote-author">- Franz Kafka</span>
-          </p>
-        </div>
-
-        <div class="pokemon">
-          <img src="https://img.pokemondb.net/sprites/sword-shield/icon/weepinbell.png" alt="Favorite Pokemon"/>
-          <span>Favorite Pokemon: <strong>weepinbell</strong></span>
-        </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

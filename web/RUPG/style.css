@@ -1,5 +1,5 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #edf1f2;
@@ -50,10 +50,14 @@ body {
 
 .right-column {
   flex: 1;
+  background-color: #0288d1;
+  color: white;
+  border-radius: 5px;
+  padding: 1rem;
 }
 
 .quote {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
@@ -91,13 +95,6 @@ button#generate-user {
 
 button#generate-user:hover {
   background-color: #007f3a;
-}
-
-.friends-list {
-  background-color: #0288d1;
-  color: white;
-  border-radius: 5px;
-  padding: 1rem;
 }
 
 .friends-list h3 {
