@@ -68,7 +68,50 @@ export function getRandomQuote() {
   });
 }
 
+export function getRandomPokemon() {
+  return new Promise((resolve, reject) => {
+    let pokemonId = Math.floor(Math.random() * 1025) + 1;
+    $.ajax({
+      method: "GET",
+      url: `https://pokeapi.co/api/v2/item/${pokemonId}/`,
+      dataType: "json",
+      success: function (data) {
+        console.log(data);
+        $("#pokemon-name").text(data.name);
+        $(".pokemon img").attr("src", data.sprites.default);
+
+        resolve(data);
+      },
+      error: function (err) {
+        reject(err);
+      },
+    });
+  });
+}
+
+export function getRandomIpsum() {
+  return new Promise((resolve, reject) => {
+    let pokemonId = Math.floor(Math.random() * 1025) + 1;
+    $.ajax({
+      method: "GET",
+      url: `https://baconipsum.com/api/?callback=?`,
+      dataType: "json",
+      success: function (data) {
+        console.log(data);
+        $("#text-ipsum").text(data[0]);
+
+        resolve(data);
+      },
+      error: function (err) {
+        reject(err);
+      },
+    });
+  });
+}
+
 export function renderAll() {
   getMainPersonData();
   getRandomQuote();
+  getRandomPokemon();
+  getRandomIpsum();
 }
