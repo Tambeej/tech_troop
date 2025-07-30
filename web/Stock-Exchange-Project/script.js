@@ -89,9 +89,9 @@ function search() {
 
     /////Reading real data
     // $.get(url, function (data) {
-      loadingSpinner.classList.remove("d-none");
-      renderResults(data);
-      loadingSpinner.classList.add("d-none");
+    loadingSpinner.classList.remove("d-none");
+    renderResults(data);
+    loadingSpinner.classList.add("d-none");
     // }).fail(function () {
     //   $("#results-list").html(
     //     `<li class="list-group-item text-danger">Failed to load results.</li>`
@@ -113,8 +113,9 @@ function renderResults(results) {
     list.append(`
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <div>
-          <strong>${item.name}</strong> (${item.symbol})<br />
-          <small class="text-muted">${item.exchangeShortName}</small>
+          <a href="/company.html?symbol=${item.symbol}" target="_blank">
+  <strong>${item.name}</strong> (${item.symbol})
+</a><br />
         </div>
       </li>
     `);
