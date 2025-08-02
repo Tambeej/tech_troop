@@ -2,14 +2,16 @@ import Tweeter from "./model.js";
 
 const Renderer = function () {
   const createCommentHTML = (comment) => {
-  return `
-    <span class="delete-comment" data-id="${comment.id}">x</span>
+    return `
     <div class="comment" data-id="${comment.id}">
-      ${comment.text}
+      <span 
+        class="delete-comment" 
+        data-id="${comment.id}"
+      >x</span>
+      <span>${comment.text}</span>
     </div>
   `;
-};
-
+  };
 
   const createPostHTML = (post) => {
     const commentsHTML = post.comments.map(createCommentHTML).join("");
