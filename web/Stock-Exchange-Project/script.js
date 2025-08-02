@@ -125,15 +125,105 @@ function renderResults(results) {
   }
 
   results.forEach((item) => {
+    const change = parseFloat(item.changesPercentage);
+    const changeColor =
+      change > 0
+        ? "text-success"
+        : change < 0
+        ? "text-danger"
+        : "text-secondary";
+
     list.append(`
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <div>
-          <a href="company.html?symbol=${item.symbol}" target="_blank"> 
-          <strong>${item.name}</strong> (${item.symbol})</a><br />
+    <li class="list-group-item">
+      <div class="d-flex align-items-center gap-3">
+        <img  id ="company-symbol" src="${item.logo}" alt="${item.name} logo" style="width: 32px; height: 32px; object-fit: contain" />
+        <div class="d-flex flex-wrap align-items-baseline gap-2">
+          <a href="company.html?symbol=${item.symbol}" target="_blank" class="fw-bold text-decoration-none text-primary">
+            ${item.name}
+          </a>
+          <span class="text-muted">(${item.symbol})</span>
+          <span id="changes-in-percentages"></span>
         </div>
-      </li>
-    `);
+      </div>
+    </li>
+  `);
+
+    getSymbolData(item.symbol);
   });
+}
+
+function getSymbolData(symbol) {
+  // let url = `https://financialmodelingprep.com/api/v3/company/profile/${symbol}?apikey=qcUtnRSssrsmSFksSYhDaPvCoowkGFAH`;
+  let data = {
+    symbol: "AAL",
+    profile: {
+      price: 11.49,
+      beta: "1.359",
+      volAvg: "61022680",
+      mktCap: "7581435210",
+      lastDiv: "0",
+      range: "8.5-19.1",
+      changes: -0.02,
+      changesPercentage: "-0.17406440382941687",
+      companyName: "American Airlines Group Inc.",
+      exchange: "NASDAQ Global Select",
+      exchangeShortName: "NASDAQ",
+      industry: "Airlines, Airports & Air Services",
+      website: "https://www.aa.com",
+      description:
+        "American Airlines Group Inc., through its subsidiaries, operates as a network air carrier. The company provides scheduled air transportation services for passengers and cargo through its hubs in Charlotte, Chicago, Dallas/Fort Worth, Los Angeles, Miami, New York, Philadelphia, Phoenix, and Washington, D.C., as well as through partner gateways in London, Madrid, Seattle/Tacoma, Sydney, and Tokyo. As of December 31, 2021, it operated a mainline fleet of 865 aircraft. The company was formerly known as AMR Corporation and changed its name to American Airlines Group Inc. in December 2013. American Airlines Group Inc. was founded in 1930 and is headquartered in Fort Worth, Texas.",
+      ceo: "Robert D. Isom Jr.",
+      sector: "Industrials",
+      country: "US",
+      fullTimeEmployees: "133100",
+      phone: "682 278 9000",
+      address: "1 Skyview Drive",
+      city: "Fort Worth",
+      state: "TX",
+      zip: "76155",
+      ipoDate: "2005-09-27",
+      currency: "USD",
+      isin: "US02376R1023",
+      cusip: "02376R102",
+      cik: "0000006201",
+      image: "https://images.financialmodelingprep.com/symbol/AAL.png",
+      defaultImage: false,
+      isEtf: false,
+      isActivelyTrading: true,
+      isFund: false,
+      isAdr: false,
+    },
+  };
+  // fetchData(url)
+  //   .then((data) => {
+  let changes = data?.profile?.changes;
+
+  if (changes !== undefined && changes !== null) {
+    const changeValue = parseFloat(changes);
+    const percentageText = `(${changeValue}%)`;
+
+    const $changeElement = $("#changes-in-percentages");
+    $changeElement.text(percentageText);
+    $changeElement.removeClass("text-success text-danger");
+
+    if (changeValue > 0) {
+      $changeElement.addClass("text-success");
+    } else if (changeValue < 0) {
+      $changeElement.addClass("text-danger");
+    }
+  }
+  const logo = data?.profile?.image;
+  if (logo) {
+    $("#company-symbol").attr("src", logo);
+  }
+
+  // })
+  // .catch((error) => {
+  //   $("#results-list").html(
+  //     `<li class="list-group-item text-danger">Failed to load company info.</li>`
+  //   );
+  //   console.error("Error fetching symbol data:", error);
+  // });
 }
 
 function getSymbol() {
@@ -201,17 +291,17 @@ function getSymbol() {
   let changes = data?.profile?.changes;
 
   if (changes !== undefined && changes !== null) {
-    const changeValue = parseFloat(changes); // Get the number
-    const percentageText = `(${changeValue}%)`; // Format for display
+    const changeValue = parseFloat(changes);
+    const percentageText = `(${changeValue}%)`;
 
     const $changeElement = $("#changes-in-percentages");
     $changeElement.text(percentageText);
     $changeElement.removeClass("text-success text-danger");
 
     if (changeValue > 0) {
-      $changeElement.addClass("text-success"); // green
+      $changeElement.addClass("text-success");
     } else if (changeValue < 0) {
-      $changeElement.addClass("text-danger"); // red
+      $changeElement.addClass("text-danger");
     }
   }
 
