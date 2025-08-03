@@ -1,3 +1,5 @@
+import Marquee from "./Marquee.js";
+
 $("#search-btn").on("click", search);
 $("#search-input").on("keyup", function (e) {
   if (e.key === "Enter" || e.keyCode === 13) {
@@ -1377,7 +1379,11 @@ function renderResults(results) {
 }
 document.addEventListener("DOMContentLoaded", function () {
   if (window.location.pathname.includes("index.html")) {
-    loadMarquee();
+    // loadMarquee();
+
+    const marqueeContainer = document.getElementById("stock-marquee");
+    const marquee = new Marquee(marqueeContainer);
+    marquee.init();
   }
   if (window.location.pathname.includes("company.html")) {
     getSymbol();
