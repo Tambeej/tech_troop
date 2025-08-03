@@ -1,0 +1,43 @@
+.stock-marquee {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f9f9f9;
+  padding: 10px 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 10s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.stock-item {
+  flex-shrink: 0;
+  font-family: Arial, sans-serif;
+  margin-right: 10px;
+}
+
+.stock-symbol {
+  color: black;
+  font-weight: lighter;
+}
+
+.stock-price {
+  color: #28a745;
+}

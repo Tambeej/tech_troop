@@ -5,104 +5,6 @@ $("#search-input").on("keyup", function (e) {
   }
 });
 
-function search() {
-  const input = $("#search-input").val().trim();
-  const loadingSpinner = document.getElementById("loadingSpinner");
-
-  if (input) {
-    //Mock data for development
-    let data = [
-      {
-        symbol: "AAL",
-        name: "American Airlines Group Inc.",
-        currency: "USD",
-        stockExchange: "NASDAQ Global Select",
-        exchangeShortName: "NASDAQ",
-      },
-      {
-        symbol: "AAXJ",
-        name: "iShares MSCI All Country Asia ex Japan ETF",
-        currency: "USD",
-        stockExchange: "NASDAQ Global Market",
-        exchangeShortName: "NASDAQ",
-      },
-      {
-        symbol: "AAWW",
-        name: "Atlas Air Worldwide Holdings, Inc.",
-        currency: "USD",
-        stockExchange: "NASDAQ Global Select",
-        exchangeShortName: "NASDAQ",
-      },
-      {
-        symbol: "AAVM",
-        name: "Alpha Architect Global Factor Equity ETF",
-        currency: "USD",
-        stockExchange: "NASDAQ Global Market",
-        exchangeShortName: "NASDAQ",
-      },
-      {
-        symbol: "AARD",
-        name: "Aardvark Therapeutics, Inc. Common Stock",
-        currency: "USD",
-        stockExchange: "NASDAQ Global Select",
-        exchangeShortName: "NASDAQ",
-      },
-      {
-        symbol: "AAPU",
-        name: "Direxion Daily AAPL Bull 1.5X Shares",
-        currency: "USD",
-        stockExchange: "NASDAQ Global Market",
-        exchangeShortName: "NASDAQ",
-      },
-      {
-        symbol: "AAPL",
-        name: "Apple Inc.",
-        currency: "USD",
-        stockExchange: "NASDAQ Global Select",
-        exchangeShortName: "NASDAQ",
-      },
-      {
-        symbol: "AAPG",
-        name: "Ascentage Pharma Group International",
-        currency: "USD",
-        stockExchange: "NASDAQ Global Market",
-        exchangeShortName: "NASDAQ",
-      },
-      {
-        symbol: "AAPD",
-        name: "Direxion Daily AAPL Bear 1X Shares",
-        currency: "USD",
-        stockExchange: "NASDAQ Global Market",
-        exchangeShortName: "NASDAQ",
-      },
-      {
-        symbol: "AAPB",
-        name: "GraniteShares ETF Trust - GraniteShares 2x Long Tilray Daily ETF",
-        currency: "USD",
-        stockExchange: "NASDAQ Global Market",
-        exchangeShortName: "NASDAQ",
-      },
-    ];
-    // url = `https://financialmodelingprep.com/api/v3/search?query=${queryVar}&limit=10&exchange=NASDAQ&apikey=${process.env.API_KEY}`;
-    // url = `https://financialmodelingprep.com/api/v3/search?query=${queryVar}&limit=10&exchange=NASDAQ&apikey=qcUtnRSssrsmSFksSYhDaPvCoowkGFAH`;
-    // let data = getData(url);
-
-    loadingSpinner.classList.remove("d-none");
-
-    //   fetchData(url)
-    // .then((data) => {
-    renderResults(data);
-    loadingSpinner.classList.add("d-none");
-    // })
-    // .catch((error) => {
-    //   $("#results-list").html(
-    //     `<li class="list-group-item text-danger">Failed to load company info.</li>`
-    //   );
-    //   console.error("Error fetching symbol data:", error);
-    // });
-  }
-}
-
 function fetchData(url) {
   return new Promise((resolve, reject) => {
     $.get(url)
@@ -112,43 +14,6 @@ function fetchData(url) {
       .fail(function (jqXHR, textStatus, errorThrown) {
         reject(new Error(`Request failed: ${textStatus}`));
       });
-  });
-}
-
-function renderResults(results) {
-  const list = $("#results-list");
-  list.empty();
-
-  if (results.length === 0) {
-    list.append(`<li class="list-group-item">No results found.</li>`);
-    return;
-  }
-
-  results.forEach((item) => {
-    const change = parseFloat(item.changesPercentage);
-    const changeColor =
-      change > 0
-        ? "text-success"
-        : change < 0
-        ? "text-danger"
-        : "text-secondary";
-
-    list.append(`
-    <li class="list-group-item">
-      <div class="d-flex align-items-center gap-3">
-        <img  id ="company-symbol" src="${item.logo}" alt="${item.name} logo" style="width: 32px; height: 32px; object-fit: contain" />
-        <div class="d-flex flex-wrap align-items-baseline gap-2">
-          <a href="company.html?symbol=${item.symbol}" target="_blank" class="fw-bold text-decoration-none text-primary">
-            ${item.name}
-          </a>
-          <span class="text-muted">(${item.symbol})</span>
-          <span id="changes-in-percentages"></span>
-        </div>
-      </div>
-    </li>
-  `);
-
-    getSymbolData(item.symbol);
   });
 }
 
@@ -1042,7 +907,7 @@ function getChartData(symbol) {
     };
     // url = `https://financialmodelingprep.com//api/v3/historical-price-full/${symbol}?serietype=line&apikey=${process.env.API_KEY}`;
     // let url = `https://financialmodelingprep.com//api/v3/historical-price-full/${symbol}?serietype=line&apikey=qcUtnRSssrsmSFksSYhDaPvCoowkGFAH`;
-    // fetch(url)
+    // fetchData(url)
     //   .then((res) => res.json())
     //   .then((data) => {
     if (!data.historical) return;
@@ -1100,7 +965,420 @@ function getChartData(symbol) {
   }
 }
 
+function loadMarquee() {
+  //Mock data for development
+  // let data = [
+  //   {
+  //     symbol: "AAL",
+  //     name: "American Airlines Group Inc.",
+  //     currency: "USD",
+  //     stockExchange: "NASDAQ Global Select",
+  //     exchangeShortName: "NASDAQ",
+  //   },
+  //   {
+  //     symbol: "AAXJ",
+  //     name: "iShares MSCI All Country Asia ex Japan ETF",
+  //     currency: "USD",
+  //     stockExchange: "NASDAQ Global Market",
+  //     exchangeShortName: "NASDAQ",
+  //   },
+  //   {
+  //     symbol: "AAWW",
+  //     name: "Atlas Air Worldwide Holdings, Inc.",
+  //     currency: "USD",
+  //     stockExchange: "NASDAQ Global Select",
+  //     exchangeShortName: "NASDAQ",
+  //   },
+  //   {
+  //     symbol: "AAVM",
+  //     name: "Alpha Architect Global Factor Equity ETF",
+  //     currency: "USD",
+  //     stockExchange: "NASDAQ Global Market",
+  //     exchangeShortName: "NASDAQ",
+  //   },
+  //   {
+  //     symbol: "AARD",
+  //     name: "Aardvark Therapeutics, Inc. Common Stock",
+  //     currency: "USD",
+  //     stockExchange: "NASDAQ Global Select",
+  //     exchangeShortName: "NASDAQ",
+  //   },
+  //   {
+  //     symbol: "AAPU",
+  //     name: "Direxion Daily AAPL Bull 1.5X Shares",
+  //     currency: "USD",
+  //     stockExchange: "NASDAQ Global Market",
+  //     exchangeShortName: "NASDAQ",
+  //   },
+  //   {
+  //     symbol: "AAPL",
+  //     name: "Apple Inc.",
+  //     currency: "USD",
+  //     stockExchange: "NASDAQ Global Select",
+  //     exchangeShortName: "NASDAQ",
+  //   },
+  //   {
+  //     symbol: "AAPG",
+  //     name: "Ascentage Pharma Group International",
+  //     currency: "USD",
+  //     stockExchange: "NASDAQ Global Market",
+  //     exchangeShortName: "NASDAQ",
+  //   },
+  //   {
+  //     symbol: "AAPD",
+  //     name: "Direxion Daily AAPL Bear 1X Shares",
+  //     currency: "USD",
+  //     stockExchange: "NASDAQ Global Market",
+  //     exchangeShortName: "NASDAQ",
+  //   },
+  //   {
+  //     symbol: "AAPB",
+  //     name: "GraniteShares ETF Trust - GraniteShares 2x Long Tilray Daily ETF",
+  //     currency: "USD",
+  //     stockExchange: "NASDAQ Global Market",
+  //     exchangeShortName: "NASDAQ",
+  //   },
+  // ];
+  // url = `https://financialmodelingprep.com/api/v3/stock/list?limit=20&apikey=${process.env.API_KEY}`;
+  let url = `https://financialmodelingprep.com/api/v3/stock/list?limit=20&apikey=qcUtnRSssrsmSFksSYhDaPvCoowkGFAH`;
+
+  // fetchData(url)
+  //   .then((data) => {
+  const marquee = document.getElementById("stock-marquee-inner");
+  const marqueeDup = document.getElementById("stock-marquee-duplicate");
+  // const nasdaqStocks = data
+  //   .filter((stock) => stock.exchangeShortName === "NASDAQ")
+  //   .slice(0, 20);
+
+  const nasdaqStocks = [
+    {
+      symbol: "FEMACX",
+      name: "The First Trust Combined Series 447: Investment Grade Multi-Asset Income Portfolio, Long Term, Series 12",
+      price: 923.78,
+      exchange: "NASDAQ",
+      exchangeShortName: "NASDAQ",
+      type: "trust",
+    },
+    {
+      symbol: "WTIXMX",
+      name: "CIT: Small Cap Value Fund I1 Class I1",
+      price: 15.6493,
+      exchange: "NASDAQ",
+      exchangeShortName: "NASDAQ",
+      type: "trust",
+    },
+    {
+      symbol: "WFPMDX",
+      name: "CIT: flexPATH Index+ Moderate 2045 Fund Class R1",
+      price: 25.1848,
+      exchange: "NASDAQ",
+      exchangeShortName: "NASDAQ",
+      type: "trust",
+    },
+    {
+      symbol: "WLCVFX",
+      name: "CIT: Large Cap Value Fund Fee Class I1",
+      price: 23.0575,
+      exchange: "NASDAQ",
+      exchangeShortName: "NASDAQ",
+      type: "trust",
+    },
+    {
+      symbol: "ZVAMIX",
+      name: "Infinity Core Alternative Fund",
+      price: 118.33,
+      exchange: "NASDAQ",
+      exchangeShortName: "NASDAQ",
+      type: "fund",
+    },
+    {
+      symbol: "QREARX",
+      name: "TIAA Real Estate Account",
+      price: 470.9709,
+      exchange: "NASDAQ",
+      exchangeShortName: "NASDAQ",
+      type: "trust",
+    },
+    {
+      symbol: "QCEQPX",
+      name: "College Retirement Equities Fund - CREF Equity Index Account",
+      price: 545.8876,
+      exchange: "NASDAQ",
+      exchangeShortName: "NASDAQ",
+      type: "trust",
+    },
+    {
+      symbol: "QCGRIX",
+      name: "College Retirement Equities Fund - CREF Growth Account",
+      price: 569.9433,
+      exchange: "NASDAQ",
+      exchangeShortName: "NASDAQ",
+      type: "trust",
+    },
+    {
+      symbol: "EBON",
+      name: "Ebang International Holdings Inc.",
+      price: 3.96,
+      exchange: "NASDAQ Global Select",
+      exchangeShortName: "NASDAQ",
+      type: "stock",
+    },
+    {
+      symbol: "ONEG",
+      name: "OneConstruction Group Limited",
+      price: 5.78,
+      exchange: "NASDAQ Global Market",
+      exchangeShortName: "NASDAQ",
+      type: "stock",
+    },
+    {
+      symbol: "JWEL",
+      name: "Jowell Global Ltd.",
+      price: 2.25,
+      exchange: "NASDAQ Capital Market",
+      exchangeShortName: "NASDAQ",
+      type: "stock",
+    },
+    {
+      symbol: "LINK",
+      name: "Interlink Electronics, Inc.",
+      price: 6.56,
+      exchange: "NASDAQ Capital Market",
+      exchangeShortName: "NASDAQ",
+      type: "stock",
+    },
+    {
+      symbol: "ZCMD",
+      name: "Zhongchao Inc.",
+      price: 1.01,
+      exchange: "NASDAQ Capital Market",
+      exchangeShortName: "NASDAQ",
+      type: "stock",
+    },
+    {
+      symbol: "RDI",
+      name: "Reading International, Inc.",
+      price: 1.35,
+      exchange: "NASDAQ Capital Market",
+      exchangeShortName: "NASDAQ",
+      type: "stock",
+    },
+    {
+      symbol: "GEG",
+      name: "Great Elm Group, Inc.",
+      price: 2.125,
+      exchange: "NASDAQ Global Select",
+      exchangeShortName: "NASDAQ",
+      type: "stock",
+    },
+    {
+      symbol: "AIRS",
+      name: "AirSculpt Technologies, Inc.",
+      price: 5.915,
+      exchange: "NASDAQ Global Market",
+      exchangeShortName: "NASDAQ",
+      type: "stock",
+    },
+    {
+      symbol: "LITM",
+      name: "Snow Lake Resources Ltd.",
+      price: 3.69,
+      exchange: "NASDAQ Capital Market",
+      exchangeShortName: "NASDAQ",
+      type: "stock",
+    },
+    {
+      symbol: "DAPP",
+      name: "VanEck Digital Transformation ETF",
+      price: 16.03,
+      exchange: "NASDAQ Global Market",
+      exchangeShortName: "NASDAQ",
+      type: "etf",
+    },
+    {
+      symbol: "ESGD",
+      name: "iShares ESG Aware MSCI EAFE ETF",
+      price: 87.05,
+      exchange: "NASDAQ Global Market",
+      exchangeShortName: "NASDAQ",
+      type: "etf",
+    },
+    {
+      symbol: "ELUT",
+      name: "Elutia Inc.",
+      price: 2.04,
+      exchange: "NASDAQ Capital Market",
+      exchangeShortName: "NASDAQ",
+      type: "stock",
+    },
+  ];
+
+  nasdaqStocks.forEach((stock) => {
+    const change = parseFloat(stock.change);
+
+    marquee.innerHTML += `
+          <span class="stock-item">
+            <strong class="stock-symbol">${
+              stock.symbol
+            }</strong>: <span class="stock-price">($${stock.price.toFixed(2)})
+          </span></span>
+        `;
+
+    marqueeDup.innerHTML += `
+          <span class="stock-item">
+            <strong class="stock-symbol">${
+              stock.symbol
+            }</strong>: <span class="stock-price">($${stock.price.toFixed(2)})
+          </span></span>
+        `;
+  });
+
+  // })
+  // .catch((error) => {
+  //   $("#stock-marquee").html(
+  //     `<a class="list-group-item text-danger">Failed to load marquee info.</a>`
+  //   );
+  //   console.error("Error fetching marquee data:", error);
+  // });
+}
+
+function search() {
+  const input = $("#search-input").val().trim();
+  const loadingSpinner = document.getElementById("loadingSpinner");
+
+  if (input) {
+    //Mock data for development
+    let data = [
+      {
+        symbol: "AAL",
+        name: "American Airlines Group Inc.",
+        currency: "USD",
+        stockExchange: "NASDAQ Global Select",
+        exchangeShortName: "NASDAQ",
+      },
+      {
+        symbol: "AAXJ",
+        name: "iShares MSCI All Country Asia ex Japan ETF",
+        currency: "USD",
+        stockExchange: "NASDAQ Global Market",
+        exchangeShortName: "NASDAQ",
+      },
+      {
+        symbol: "AAWW",
+        name: "Atlas Air Worldwide Holdings, Inc.",
+        currency: "USD",
+        stockExchange: "NASDAQ Global Select",
+        exchangeShortName: "NASDAQ",
+      },
+      {
+        symbol: "AAVM",
+        name: "Alpha Architect Global Factor Equity ETF",
+        currency: "USD",
+        stockExchange: "NASDAQ Global Market",
+        exchangeShortName: "NASDAQ",
+      },
+      {
+        symbol: "AARD",
+        name: "Aardvark Therapeutics, Inc. Common Stock",
+        currency: "USD",
+        stockExchange: "NASDAQ Global Select",
+        exchangeShortName: "NASDAQ",
+      },
+      {
+        symbol: "AAPU",
+        name: "Direxion Daily AAPL Bull 1.5X Shares",
+        currency: "USD",
+        stockExchange: "NASDAQ Global Market",
+        exchangeShortName: "NASDAQ",
+      },
+      {
+        symbol: "AAPL",
+        name: "Apple Inc.",
+        currency: "USD",
+        stockExchange: "NASDAQ Global Select",
+        exchangeShortName: "NASDAQ",
+      },
+      {
+        symbol: "AAPG",
+        name: "Ascentage Pharma Group International",
+        currency: "USD",
+        stockExchange: "NASDAQ Global Market",
+        exchangeShortName: "NASDAQ",
+      },
+      {
+        symbol: "AAPD",
+        name: "Direxion Daily AAPL Bear 1X Shares",
+        currency: "USD",
+        stockExchange: "NASDAQ Global Market",
+        exchangeShortName: "NASDAQ",
+      },
+      {
+        symbol: "AAPB",
+        name: "GraniteShares ETF Trust - GraniteShares 2x Long Tilray Daily ETF",
+        currency: "USD",
+        stockExchange: "NASDAQ Global Market",
+        exchangeShortName: "NASDAQ",
+      },
+    ];
+    // url = `https://financialmodelingprep.com/api/v3/search?query=${queryVar}&limit=10&exchange=NASDAQ&apikey=${process.env.API_KEY}`;
+    // let url = `https://financialmodelingprep.com/api/v3/search?query=${queryVar}&limit=10&exchange=NASDAQ&apikey=qcUtnRSssrsmSFksSYhDaPvCoowkGFAH`;
+
+    loadingSpinner.classList.remove("d-none");
+
+    //   fetchData(url)
+    // .then((data) => {
+    renderResults(data);
+    loadingSpinner.classList.add("d-none");
+    // })
+    // .catch((error) => {
+    //   $("#results-list").html(
+    //     `<li class="list-group-item text-danger">Failed to load company info.</li>`
+    //   );
+    //   console.error("Error fetching symbol data:", error);
+    // });
+  }
+}
+
+function renderResults(results) {
+  const list = $("#results-list");
+  list.empty();
+
+  if (results.length === 0) {
+    list.append(`<li class="list-group-item">No results found.</li>`);
+    return;
+  }
+
+  results.forEach((item) => {
+    const change = parseFloat(item.changesPercentage);
+    const changeColor =
+      change > 0
+        ? "text-success"
+        : change < 0
+        ? "text-danger"
+        : "text-secondary";
+
+    list.append(`
+    <li class="list-group-item">
+      <div class="d-flex align-items-center gap-3">
+        <img  id ="company-symbol" src="${item.logo}" alt="${item.name} logo" style="width: 32px; height: 32px; object-fit: contain" />
+        <div class="d-flex flex-wrap align-items-baseline gap-2">
+          <a href="company.html?symbol=${item.symbol}" target="_blank" class="fw-bold text-decoration-none text-primary">
+            ${item.name}
+          </a>
+          <span class="text-muted">(${item.symbol})</span>
+          <span id="changes-in-percentages"></span>
+        </div>
+      </div>
+    </li>
+  `);
+
+    getSymbolData(item.symbol);
+  });
+}
 document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.pathname.includes("index.html")) {
+    loadMarquee();
+  }
   if (window.location.pathname.includes("company.html")) {
     getSymbol();
   }
