@@ -1,9 +1,17 @@
 import React from "react";
 
-const Item = ({ item, price }) => {
+const Item = ({ item, price, discount, hasDiscount }) => {
   return (
     <div>
-      {item} - ${price}
+      {hasDiscount ? (
+        <span>
+          {item} - ${price * (1 - discount)}
+        </span>
+      ) : (
+        <span>
+          {item} - ${price}
+        </span>
+      )}
     </div>
   );
 };
