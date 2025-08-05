@@ -21,9 +21,24 @@ function App() {
 
   return (
     <div>
-      <Landing user={user} hottest={store.find((product) => product.hottest)} />
-
-      <Home store={store} shouldDiscount={shouldDiscount} />
+      <div>
+        {currentPage === "Landing" ? (
+          <>
+            <Landing
+              user={user}
+              hottest={store.find((product) => product.hottest)}
+            />
+            <button onClick={() => setCurrentPage("Home")}>Go to Store</button>
+          </>
+        ) : (
+          <>
+            <Home store={store} shouldDiscount={shouldDiscount} />
+            <button onClick={() => setCurrentPage("Landing")}>
+              Go to Landing
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }
