@@ -10,7 +10,15 @@ function App() {
     { name: "Google", revenue: 600 },
   ];
 
-  return <Company name={companies[0].name} revenue={companies[0].revenue} />;
+  function generateCompanyTags(companies) {
+    let companyTags = [];
+    for (let c of companies) {
+      companyTags.push(<Company name={c.name} revenue={c.revenue} />);
+    }
+    return companyTags;
+  }
+
+  return <div>{generateCompanyTags(companies)}</div>;
 }
 
 export default App;
