@@ -3,6 +3,7 @@ import { useState } from "react";
 const Exercise2 = () => {
   const [name, setName] = useState("");
   const [fruit, setFruit] = useState("");
+  
   const handleFruitChange = (e) => {
     const selectedFruit = e.target.value;
     setFruit(selectedFruit);
