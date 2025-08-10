@@ -34,12 +34,16 @@ export default function Exercise2() {
     },
   ]);
 
+  const displayConvo = (name) => {
+    setDisplayConversation(name);
+  };
+
   const contacts = conversations.map((c) => c.with);
 
   return (
     <div>
       {displayConversation === null ? (
-        <List contacts={contacts} />
+        <List contacts={contacts} displayConvo={displayConvo} />
       ) : (
         <Conversation />
       )}

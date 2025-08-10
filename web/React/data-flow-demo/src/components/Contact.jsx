@@ -1,3 +1,7 @@
-export default function Contact({ name }) {
-  return <div>{name}</div>;
+export default function Contact({ name, displayConvo }) {
+  return (
+    <div onClick={() => displayConvo(name)} style={{ cursor: "pointer" }}>
+      {name}
+    </div>
+  );
 }
