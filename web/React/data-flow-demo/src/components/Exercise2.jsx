@@ -45,7 +45,14 @@ export default function Exercise2() {
       {displayConversation === null ? (
         <List contacts={contacts} displayConvo={displayConvo} />
       ) : (
-        <Conversation />
+        (() => {
+          const convoObj = conversations.find(
+            (c) => c.with === displayConversation
+          );
+          if (!convoObj) return <div>No conversation found</div>;
+
+          return <Conversation convo={convoObj.convo} sender={convoObj.with} />;
+        })()
       )}
     </div>
   );
