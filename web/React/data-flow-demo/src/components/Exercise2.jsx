@@ -3,7 +3,7 @@ import List from "./List";
 import Conversation from "./Conversation";
 
 export default function Exercise2() {
-  const [displayConversation, setDisplayConversation] = useState("");
+  const [displayConversation, setDisplayConversation] = useState(null);
   const [conversations, setConversation] = useState([
     {
       with: "Laura",
