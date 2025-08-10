@@ -1,4 +1,8 @@
-export default function Conversation({ convo, sender }) {
+export default function Conversation({
+  convo,
+  sender,
+  displayConvo
+}) {
   return (
     <div>
       {" "}
@@ -10,6 +14,7 @@ export default function Conversation({ convo, sender }) {
           </div>
         );
       })}
+      <button onClick={() => displayConvo(null)} >Back</button>
     </div>
   );
 }

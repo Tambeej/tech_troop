@@ -51,7 +51,13 @@ export default function Exercise2() {
           );
           if (!convoObj) return <div>No conversation found</div>;
 
-          return <Conversation convo={convoObj.convo} sender={convoObj.with} />;
+          return (
+            <Conversation
+              displayConvo={displayConvo}
+              convo={convoObj.convo}
+              sender={convoObj.with}
+            />
+          );
         })()
       )}
     </div>
