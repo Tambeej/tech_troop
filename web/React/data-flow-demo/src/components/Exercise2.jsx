@@ -34,7 +34,15 @@ export default function Exercise2() {
     },
   ]);
 
+  const contacts = conversations.map((c) => c.with);
+
   return (
-    <div>{displayConversation === null ? <List /> : <Conversation />}</div>
+    <div>
+      {displayConversation === null ? (
+        <List contacts={contacts} />
+      ) : (
+        <Conversation />
+      )}
+    </div>
   );
 }
