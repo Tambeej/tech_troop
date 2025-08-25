@@ -17,7 +17,7 @@ const http = require("http");
 //   }
 // });
 
-function validEmail(email){
+function validEmail(email) {
   const regex = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
   return regex.test(email);
 }
@@ -59,6 +59,9 @@ const server = http.createServer((req, res) => {
           return res.end(
             JSON.stringify({ error: "Name and email are required" })
           );
+        }
+        if (!validEmail(data.email)) {
+          return res.end(JSON.stringify({ error: "email is not valid" }));
         }
 
         const newUser = {
