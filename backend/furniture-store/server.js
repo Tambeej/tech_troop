@@ -18,7 +18,8 @@ app.get("/", function (request, response) {
 app.get("/priceCheck/:name", function (request, response) {
   let itemName = request.params.name;
   let item = store.find((item) => item.name === itemName);
-  response.send({ price: item.price });
+  let itemPrice = item ? item.price : null;
+  response.send({ price: itemPrice });
 });
 
 const port = 3000;
