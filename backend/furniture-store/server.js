@@ -12,8 +12,13 @@ const store = [
 ];
 
 app.get("/", function (request, response) {
-  console.log("here");
   response.send("Server is up and running smoothly");
+});
+
+app.get("/priceCheck/:name", function (request, response) {
+  let itemName = request.params.name;
+  let item = store.find((item) => item.name === itemName);
+  response.send({ price: item.price });
 });
 
 const port = 3000;
