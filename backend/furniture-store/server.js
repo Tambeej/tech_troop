@@ -35,6 +35,24 @@ app.get("/buy/:name", function (request, response) {
   }
 });
 
+app.get("/sale", function (request, response) {
+  const isAdmin = request.query.admin === "true";
+
+  if (isAdmin) {
+    store.forEach((item) => {
+      if (item.inventory > 10) {
+        item.price = item.price / 2;
+      }
+    });
+  }
+
+  response.send(store);
+});
+
+app.listen(port, function () {
+  console.log(`Running server on port ${port}`);
+});
+
 const port = 3000;
 app.listen(port, function () {
   console.log(`Running server on port ${port}`);
