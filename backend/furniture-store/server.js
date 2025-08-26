@@ -22,6 +22,19 @@ app.get("/priceCheck/:name", function (request, response) {
   response.send({ price: itemPrice });
 });
 
+app.get("/buy/:name", function (request, response) {
+  let itemName = request.params.name;
+  let item = store.find((item) => item.name === itemName);
+  if (item && item.inventory > 0) {
+    item.inventory -= 1;
+    response.send(item);
+  } else if (item) {
+    response.send({ message: "Out of stock", item });
+  } else {
+    response.status(404).send({ message: "Item not found" });
+  }
+});
+
 const port = 3000;
 app.listen(port, function () {
   console.log(`Running server on port ${port}`);
