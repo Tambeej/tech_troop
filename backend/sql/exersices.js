@@ -14,34 +14,7 @@ async function getHeaviestPokemon() {
 
   return rows[0];
 }
-
 //ex3
-async function insertType(typeName) {
-  let [rows] = await sequelize.query(
-    `SELECT id FROM pokemon_type WHERE name = ?`,
-    { replacements: [typeName] }
-  );
-  if (rows.length) return rows[0].id;
-
-  let [result] = await sequelize.query(
-    `INSERT INTO pokemon_type (name) VALUES (?)`,
-    { replacements: [typeName] }
-  );
-  return result; // insertId
-}
-
-async function insertTown(townName) {
-  let [rows] = await sequelize.query(`SELECT id FROM town WHERE name = ?`, {
-    replacements: [townName],
-  });
-  if (rows.length) return rows[0].id;
-
-  let [result] = await sequelize.query(`INSERT INTO town (name) VALUES (?)`, {
-    replacements: [townName],
-  });
-  return result;
-}
-
 async function findByType(typeName) {
   let [rows] = await sequelize.query(`
     SELECT p.name
@@ -53,6 +26,20 @@ async function findByType(typeName) {
   return rows.map((row) => row.name);
 }
 
+//ex4
+async function findOwner(pokemonName) {
+  const [rows] = await sequelize.query(`
+    SELECT t.name
+    FROM pokemon_trainer pt
+    JOIN pokemon p ON p.id = pt.pokemon_id
+    JOIN trainer t ON pt.trainer_id = t.id
+    WHERE p.name = '${pokemonName}'
+  `);
+
+  return rows.map(r => r.name);
+}
+
+//ex5
 async function findRoster(trainerName) {
   const [rows] = await sequelize.query(`
     SELECT p.name
@@ -70,6 +57,8 @@ async function findRoster(trainerName) {
   console.log("Heaviest Pokémon:", heaviest.name);
   const grassPokemon = await findByType("grass");
   console.log("Grass type Pokémon:", grassPokemon);
+  const logOwner = await findOwner("gengar");
+  console.log(logOwner);
   const logaRoster = await findRoster("Loga");
   console.log(logaRoster);
 })();
