@@ -50,13 +50,26 @@ async function findByType(typeName) {
     WHERE t.name = '${typeName}'
   `);
 
-  return rows.map(row => row.name);
+  return rows.map((row) => row.name);
 }
 
+async function findRoster(trainerName) {
+  const [rows] = await sequelize.query(`
+    SELECT p.name
+    FROM pokemon p
+    JOIN pokemon_trainer pt ON p.id = pt.pokemon_id
+    JOIN trainer t ON pt.trainer_id = t.id
+    WHERE t.name = '${trainerName}'
+  `);
+
+  return rows.map((r) => r.name);
+}
 
 (async () => {
   const heaviest = await getHeaviestPokemon();
   console.log("Heaviest Pokémon:", heaviest.name);
   const grassPokemon = await findByType("grass");
   console.log("Grass type Pokémon:", grassPokemon);
+  const logaRoster = await findRoster("Loga");
+  console.log(logaRoster);
 })();
