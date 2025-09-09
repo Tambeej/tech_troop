@@ -15,7 +15,6 @@ mongoose
     { useNewUrlParser: true }
   ).catch((err) => console.log(err));
 
-// app.use("/", api);
 app.use("/api", personRouter);
 
 const port = 4200;
