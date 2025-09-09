@@ -52,4 +52,17 @@ router.put("/person/:id", async (req, res) => {
   }
 });
 
+// DELETE /api/apocalypse - erase all the data
+router.delete("/apocalypse", async (req, res) => {
+  try {
+    const result = await Person.deleteMany({});
+    res.json({
+      success: true,
+      message: `Apocalypse complete. ${result.deletedCount} people removed.`,
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
 module.exports = router;
