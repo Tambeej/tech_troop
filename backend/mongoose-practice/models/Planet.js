@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
-const solarSystemSchema = new mongoose.Schema({
-  starName: { type: String, required: true },
-  planets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Planet" }],
+const planetSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  system: { type: mongoose.Schema.Types.ObjectId, ref: "SolarSystem" },
+  visitors: [{ type: mongoose.Schema.Types.ObjectId, ref: "Visitor" }],
 });
 
-module.exports = mongoose.model("SolarSystem", solarSystemSchema);
+module.exports =
+  mongoose.models.Planet || mongoose.model("Planet", planetSchema);

@@ -6,4 +6,4 @@ const visitorSchema = new mongoose.Schema({
   visitedPlanets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Planet" }],
 });
 
-module.exports = mongoose.model("Visitor", visitorSchema);
+module.exports = mongoose.models.Visitor || mongoose.model("Visitor", visitorSchema);
