@@ -23,6 +23,7 @@ app.listen(port, function () {
   console.log(`Running on port ${port}`);
 
   // seed();
+  runQueries();
 });
 
 const Visitor = require("./models/Visitor");
@@ -62,4 +63,37 @@ async function seed() {
   await mars.save();
 
   console.log("Seed done");
+}
+
+async function runQueries() {
+  //ex1
+  const visitorWithPlanets = await Visitor.findOne({ name: "Alice" }).populate(
+    "visitedPlanets",
+    "name"
+  );
+
+  console.log(visitorWithPlanets.visitedPlanets);
+
+  //ex2
+  const planetWithVisitors = await Planet.findOne({ name: "Earth" })
+    .populate("visitors", "name")
+    .exec();
+
+  console.log(planetWithVisitors.visitors);
+
+  //ex3
+  const systemWithVisitors = await SolarSystem.findOne({ starName: "Sun" })
+    .populate({
+      path: "planets",
+      populate: { path: "visitors", select: "name" },
+    })
+    .exec();
+
+  console.log(systemWithVisitors.planets);
+  systemWithVisitors.planets.forEach((planet) => {
+    console.log(`Planet: ${planet.name}`);
+    planet.visitors.forEach((visitor) => {
+      console.log(` - Visitor: ${visitor.name}`);
+    });
+  });
 }
